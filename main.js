@@ -1,11 +1,4 @@
-/*var map = L.map('map').setView([50.914167, 14.203333], 15);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-var marker = L.marker([50.914167, 14.203333]).addTo(map);
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-*/
+
 
 let stop= {
     nr: 2,
@@ -16,11 +9,7 @@ let stop= {
     zoom:15,
 };
 
-// bitte  lat, lng, zoom und title eurer Lieblingsorte-Etappe eintragen
-// passt auf, dass keine Kommas verloren gehen
-// ändert eure Etappe und nicht die Etappe anderer ;-)
 
-// Stops der Lieblingsorte
 // Stops der Lieblingsorte
 const STOPS = [
     {
@@ -261,7 +250,7 @@ marker.bindPopup(`
 
 // auf Änderungen beim Pulldown reagieren
 document.querySelector("#pulldown select").onchange = function(evt) {
-    let url= `https://${evt.target.value}.github.io/nz`;
+    let url= `https://${evt.target.value}.github.io/top`;
     //console.log(url);
     //console.log(evt.target.value);
     window.location = url;
