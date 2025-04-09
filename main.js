@@ -9,7 +9,6 @@ let stop= {
     zoom:15,
 };
 
-
 // Stops der Lieblingsorte
 const STOPS = [
     {
@@ -200,8 +199,6 @@ nr: 29,
     zoom: 13
     },
 ];
-
-
 console.log(STOPS[0]);
 console.log(STOPS[0].title);
 
@@ -210,11 +207,30 @@ console.log(STOPS[0].title);
 //Karte initialisieren
 let map = L.map('map');
 
-//Hintergrundkarte initialisieren
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+//Overlays definieren
+let overlays = {
+    STOPS: L.featureGroup().addTo(map),
+}
+
+//Layercontrol
+L.control.layers({
+    "OpenStreetMap.Mapnik": L.tileLayer.provider('OpenStreetMap.Mapnik').addTo(map),
+    "OpenTopoMap": L.tileLayer.provider('OpenTopoMap'),
+    "Esri WorldImagery":L.tileLayer.provider('Esri.WorldImagery'),
+    }, {
+        "Etappen": overlays.STOPS,
+        
+    }).addTo(map);
+    
+    
+
+
+//Maßstab, imperail ausschalten
+L.control.scale({
+    imperial: false,
 }).addTo(map);
+
+
 
 // loop über Etappen
 for (let i=0; i<STOPS.length; i++) {
