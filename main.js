@@ -237,6 +237,7 @@ for (let i=0; i<STOPS.length; i++) {
 
 //Marker zeichnen
     let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
+    marker.addTo(overlays.STOPS);
 
     //Popup definieren
 marker.bindPopup(`
